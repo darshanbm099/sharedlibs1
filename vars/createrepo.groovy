@@ -27,7 +27,7 @@ def call(SCM) {
             git init
             git add .
             git config user.name "$GitCred_USR"
-            git config user.email "konthamvivek13@gmail.com"
+            git config user.email "darshanbm099@gmail.com"
             git commit -m "first commit"
             git branch -M main
             git remote add $ApiName https://$GitCred_USR:$GitCred_PSW@github.com/$GitCred_USR/$ApiName.git
@@ -84,7 +84,7 @@ def call(SCM) {
             git init
             git add .
             git config user.name "$GitCred_USR"
-            git config user.email "konthamvivek13@gmail.com"
+            git config user.email "darshanbm099@gmail.com"
             git commit -m "first commit"
             git branch -M main
             git remote add $ApiName https://$GitCred_USR:$GitCred_PSW@bitbucket.org/$GitCred_USR/$ApiName.git
