@@ -13,7 +13,7 @@ def call(SCM) {
             script{
               //github api (curl command to create github repository)
               sh '''
-              if ls $ApiName
+              if ls -la $ApiName | curl https://api.github.com/repos/$GitCred_USR/$ApiName
               then echo "$ApiName already exists give different name to continue"
               else
            
@@ -71,7 +71,7 @@ def call(SCM) {
             script{
               //bitbucket api (curl command to create github repository)
               sh '''
-              if ls $ApiName
+              if ls -la $ApiName |curl --user $GitCred_USR:$GitCred_PSW --request GET https://api.bitbucket.org/2.0/repositories/$GitCred_USR/$ApiName
               then echo "$ApiName already exists give different name to continue"
               else
             curl -X POST -v -u $GitCred_USR:$GitCred_PSW -H "Content-Type: application/json" https://api.bitbucket.org/2.0/repositories/$GitCred_USR/$ApiName -d '{"scm": "git", "is_private": "true","project": {"key": "'$ProjectName'"} }'
