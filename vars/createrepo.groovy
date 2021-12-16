@@ -18,6 +18,7 @@ def call(SCM) {
               elif curl https://api.github.com/repos/$GitCred_USR/$ApiName 
               then echo "$ApiName already exists in GitHub"
               elif
+              then 
            
             curl -u $GitCred_USR:$GitCred_PSW https://api.github.com/user/repos -d '{"name":"'$ApiName'","private":true}'
             pwd
