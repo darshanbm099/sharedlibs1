@@ -15,10 +15,7 @@ def call(SCM) {
               sh '''
               if ls -la $ApiName 
               then echo "$ApiName already exists give different name to continue"
-              elif curl https://api.github.com/repos/$GitCred_USR/$ApiName 
-              then echo "$ApiName already exists in GitHub"
-              elif
-              then 
+            else
            
             curl -u $GitCred_USR:$GitCred_PSW https://api.github.com/user/repos -d '{"name":"'$ApiName'","private":true}'
             pwd
@@ -66,8 +63,6 @@ def call(SCM) {
               sh '''
               if ls -la $ApiName 
               then echo "$ApiName already exists give different name to continue"
-              elif curl --user $GitCred_USR:$GitCred_PSW --request GET https://api.bitbucket.org/2.0/repositories/$GitCred_USR/$ApiName 
-              then echo "$ApiName already exists in GitHub"
               else
             curl -X POST -v -u $GitCred_USR:$GitCred_PSW -H "Content-Type: application/json" https://api.bitbucket.org/2.0/repositories/$GitCred_USR/$ApiName -d '{"scm": "git", "is_private": "true","project": {"key": "'$ProjectName'"} }'
             pwd
